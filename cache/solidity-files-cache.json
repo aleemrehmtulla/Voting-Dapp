@@ -2,8 +2,8 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "/Users/aleem/repo/web3/Voting-Dapp/contracts/VoteDapp.sol": {
-      "lastModificationDate": 1638466051228,
-      "contentHash": "c90a4c51ceb96ef2182c527985781e49",
+      "lastModificationDate": 1638479018956,
+      "contentHash": "36d6cb5c94f76e0d628952f2176c8e2e",
       "sourceName": "contracts/VoteDapp.sol",
       "solcConfig": {
         "version": "0.8.0",

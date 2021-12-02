@@ -29,7 +29,7 @@ contract VoteDapp {
 
         require(
             lastVotedAt[msg.sender] + 10 seconds < block.timestamp,
-            "Wait 10 seconds before voting again!"
+            "Wait 10 secondss before voting again!"
         );
 
   

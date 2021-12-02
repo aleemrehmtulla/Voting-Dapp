@@ -6,6 +6,8 @@
 
 npx hardhat run scripts/run.js
 
+npx hardhat run scripts/deploy.js --network rinkeby
+
 npx hardhat accounts
 
 npx hardhat compile

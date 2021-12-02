@@ -12,6 +12,13 @@ code {
     monospace;
 }
 
+.topcorner{
+  position:absolute;
+  top:0;
+  right:0;
+  padding: 1%;
+ }
+
 .rowC {
   display: flex;
   flex-direction: row;

@@ -20,6 +20,7 @@ const App = () => {
   const [allVotes, setAllVotes] = useState([]);
   const [totalTrump, setTotalTrump] = useState(0);
   const [totalBiden, setTotalBiden] = useState(0);
+  const [totalVotes, setTotalVotes] = useState(0);
 
 
 
@@ -40,6 +41,7 @@ const App = () => {
         let totalBiden = await voteDappContract.getTotalBiden();
         setTotalBiden(totalBiden.toNumber());
         setTotalTrump(totalTrump.toNumber());
+        setTotalVotes(totalVotes.toNumber());
         console.log("Retrieving vote counts...");
         console.log("Total vote count:", totalVotes.toNumber());
         console.log("Total trump count:", totalTrump.toNumber());
@@ -198,6 +200,7 @@ const App = () => {
     <div className="mainContainer">
       
       <div className="rowC">
+      <div className="space" />
         <div className="padding: 10rem">
           <Card style={{ width: "18rem" }}>
             <Card.Img variant="top" src={Biden} />
@@ -216,6 +219,17 @@ const App = () => {
           </Card>
         </div>
         <div className="space" />
+        <div className="chart">
+          <p><b>Total: {totalVotes} | Trump: {totalTrump} | Biden: {totalBiden}</b></p>
+        <PieChart
+            data={[
+            { title: 'Trump', value: totalTrump, color: '#e31c3d' },
+             { title: 'Biden', value: totalBiden, color: '#3174ce' },
+
+            ]}/>;
+        </div>
+        <div className="space" />
+        
         <div className="padding: 10rem">
           <Card style={{ width: "18rem" }}>
             <Card.Img variant="top" src={Trump} />
@@ -234,15 +248,10 @@ const App = () => {
           </Card>
           
 
-          <PieChart
-  data={[
-    { title: 'One', value: totalTrump, color: '#E38627' },
-    { title: 'Two', value: totalBiden, color: '#C13C37' },
-
-  ]}
-/>;
+         
 
         </div>
+        <div className="space" />
         <div>
 
 </div>

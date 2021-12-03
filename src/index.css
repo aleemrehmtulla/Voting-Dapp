@@ -41,3 +41,7 @@ code {
   width: 10%;
 
   }
+  .chart {
+    height: auto;
+    width: 25%;
+  }

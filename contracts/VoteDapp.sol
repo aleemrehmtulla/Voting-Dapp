@@ -6,6 +6,8 @@ import "hardhat/console.sol";
 
 contract VoteDapp {
     uint256 totalVotes;
+    uint256 totalTrump;
+    uint256 totalBiden;
     uint256 private seed;
 
     event NewVote(address indexed from, uint256 timestamp, string message);
@@ -25,42 +27,56 @@ contract VoteDapp {
         seed = (block.timestamp + block.difficulty) % 100;
     }
 
-    function vote(string memory _message) public {
 
+    // Vote for trump function
+    function votetrump(string memory _message) public {
+        // Prevent voting multiple times
         require(
             lastVotedAt[msg.sender] + 10 seconds < block.timestamp,
             "Wait 10 secondss before voting again!"
         );
-
-  
         lastVotedAt[msg.sender] = block.timestamp;
 
+        // Make the new vote
         totalVotes += 1;
-        console.log("%s has voted!", msg.sender);
-
+        totalTrump += 1;
+        console.log(msg.sender, "has voted for trump!");
         votes.push(Vote(msg.sender, _message, block.timestamp));
-
-        seed = (block.difficulty + block.timestamp + seed) % 100;
-
-        if (seed <= 50) {
-            console.log("%s won!", msg.sender);
-
-            uint256 prizeAmount = 0.0001 ether;
-            require(
-                prizeAmount <= address(this).balance,
-                "Trying to withdraw more money than they contract has."
-            );
-            (bool success, ) = (msg.sender).call{value: prizeAmount}("");
-            require(success, "Failed to withdraw money from contract.");
-        }
-
         emit NewVote(msg.sender, block.timestamp, _message);
     }
 
+
+    // Vote for biden function
+    function votebiden(string memory _message) public {
+        // Prevent voting multiple times
+        require(
+            lastVotedAt[msg.sender] + 0 seconds < block.timestamp,
+            "Wait 10 secondss before voting again!"
+        );
+        lastVotedAt[msg.sender] = block.timestamp;
+
+        // Make the new vote
+        totalVotes += 1;
+        totalBiden += 1;
+        console.log(msg.sender, "has voted for biden!");
+        votes.push(Vote(msg.sender, _message, block.timestamp));
+        emit NewVote(msg.sender, block.timestamp, _message);
+    }
+
+    // Total each candidate's vote count
+    function getTotalTrump() public view returns (uint256) {
+        return totalTrump;
+    }
+    function getTotalBiden() public view returns (uint256) {
+        return totalBiden;
+    }
+
+    // Function to get all the votes (might remove this)
     function getAllVotes() public view returns (Vote[] memory) {
         return votes;
     }
 
+    // Function to get the total votes
     function getTotalVotes() public view returns (uint256) {
         return totalVotes;
     }

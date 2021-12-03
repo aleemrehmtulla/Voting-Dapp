@@ -1,36 +1,28 @@
 const main = async () => {
   const voteContractFactory = await hre.ethers.getContractFactory('VoteDapp');
-  const voteContract = await voteContractFactory.deploy({
-    value: hre.ethers.utils.parseEther('0.1'),
-  });
+  const voteContract = await voteContractFactory.deploy({});
   await voteContract.deployed();
   console.log('Contract address:', voteContract.address);
 
-  let contractBalance = await hre.ethers.provider.getBalance(
-    voteContract.address
-  );
-  console.log(
-    'Contract balance:',
-    hre.ethers.utils.formatEther(contractBalance)
-  );
+  
+  //  First manual vote
+  const votetrumpTxn = await voteContract.votetrump('This is vote #1');
+  await votetrumpTxn.wait();
 
-  /*
-   * Let's try two votes now
-   */
-  const voteTxn = await voteContract.vote('This is vote #1');
-  await voteTxn.wait();
+  //  Second manual vote
+  const votebidenTxn2 = await voteContract.votebiden('This is vote #2');
+  await votebidenTxn2.wait();
 
-  const voteTxn2 = await voteContract.vote('This is vote #2');
-  await voteTxn2.wait();
+  //  Third manual vote
+  const votebidenTxn3 = await voteContract.votebiden('This is vote #2');
+  await votebidenTxn3.wait();
 
-  contractBalance = await hre.ethers.provider.getBalance(voteContract.address);
-  console.log(
-    'Contract balance:',
-    hre.ethers.utils.formatEther(contractBalance)
-  );
-
-  let allVotes = await voteContract.getAllVotes();
-  console.log(allVotes);
+  let totalVotes = await voteContract.getTotalVotes();
+  let totalTrump = await voteContract.getTotalTrump();
+  let totalBiden = await voteContract.getTotalBiden();
+  console.log('Total votes:', totalVotes.toString());
+  console.log("Total trump votes:", totalTrump.toString());
+  console.log("Total biden votes:", totalBiden.toString());
 };
 
 const runMain = async () => {

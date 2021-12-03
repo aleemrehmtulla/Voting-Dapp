@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import styled from "styled-components";
+import vote from "../App";
 
 const Tag = styled.div`
   background-color: black;

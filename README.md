@@ -1,4 +1,4 @@
-# Frontend component to waveportal 👋
+# Frontend component to voting dapp 🇺🇸
 
 ## Usage 🤝
 

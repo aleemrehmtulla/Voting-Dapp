@@ -1,70 +1,52 @@
-# Getting Started with Create React App
+# Frontend component to waveportal 👋
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Usage 🤝
 
-## Available Scripts
+This is based off the Rinkeby network (ETH Testnet)
 
-In the project directory, you can run:
+You will need a wallet to interact with the smart contract, metamask is best
 
-### `yarn start`
+Once you select the candidate you choose to vote for, the website will update immediately once confirmed by ETH (~20 seconds)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Deployments 💻
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Fleek: https://votingdapp.aleemrehmtulla.com
 
-### `yarn test`
+## For development 🧑‍💻
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Scripts
 
-### `yarn build`
+npm start
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+npm build
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+npm install
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `yarn eject`
+### Important notes
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- utils/Voting.json must be updated everytime ABI changes
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Keep contractadress in app.jsx up to date
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- Edit app in /src/app.jsx
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Intention, Limitations, and Learnings
 
-## Learn More
+This was my second web3, and my first from scracth :)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+I could improve by adding forced network changes, emit functions, and better UI. I chose to keep simplicitc for consistent 
+growth, making new projects with better features would let me stay excited and be creative 🚀
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Learned a ton about solidity here as I implemented everything from scratch, whereas last time was through the buildspace tutorial. I also learned some react concepts in betetr depths like props (scractched props from final), use states, etc.
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Connect with me 🤗
 
-### Analyzing the Bundle Size
+https://twitter.com/aleemrehmtulla
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+https://aleem.rehmtulla.com
 
-### Making a Progressive Web App
+https://www.linkedin.com/in/aleemrehmtulla/
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
